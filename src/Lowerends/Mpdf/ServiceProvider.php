@@ -1,7 +1,7 @@
 <?php namespace Lowerends\Mpdf;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
-use Mpdf\Mpdf\Mpdf as Pdf;
+use TFox\MpdfPortBundle\Service\MpdfService as mPDF;
 
 class ServiceProvider extends BaseServiceProvider {
 
@@ -27,7 +27,7 @@ class ServiceProvider extends BaseServiceProvider {
             {
                 $base = $app['config']->get('l4-mpdf::config.pdf.base');
                 $options = $app['config']->get('l4-mpdf::config.pdf.options');
-                $mpdf = new Pdf('win-1252','A4','','',20,15,48,25,10,10);
+                $mpdf = new mPDF;
                 return $mpdf;
             });
 
