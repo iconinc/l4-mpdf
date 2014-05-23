@@ -30,17 +30,16 @@ class ServiceProvider extends BaseServiceProvider {
 			{
 				$base = $app['config']->get('l4-mpdf::config.pdf.base');
 				$options = $app['config']->get('l4-mpdf::config.pdf.options');
-				$mpdf=new \mPDF('win-1252','A4','','',20,15,48,25,10,10); 
-				$mpdf->useOnlyCoreFonts = false;    // false is default
+				$mpdf=new \mPDF('win-1252','A4','','',10,10,40,35,10,5);
 				$mpdf->SetProtection(array('print'));
 				$mpdf->SetTitle("Acme Trading Co. - Invoice");
 				$mpdf->SetAuthor("Acme Trading Co.");
-				$mpdf->SetWatermarkText("Watermark");
-				$mpdf->showWatermarkText = true;
+				$mpdf->SetWatermarkText("Paid");
+				$mpdf->showWatermarkText = false;
 				$mpdf->watermark_font = 'DejaVuSansCondensed';
 				$mpdf->watermarkTextAlpha = 0.1;
 				$mpdf->SetDisplayMode('fullpage');
-				
+
 				return $mpdf;
 			});
 
