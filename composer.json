@@ -1,0 +1,22 @@
+{
+    "name": "lowerends/l4-mpdf",
+    "description": "mPDF wrapper for Laravel 4",
+    "keywords": ["laravel","mpdf", "pdf"],
+    "authors": [
+        {
+            "name": "Lowe Rends",
+            "email": "lowerends@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.x",
+        "mpdf/mpdf": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Lowerends\\Mpdf": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
