@@ -11,7 +11,7 @@
     "require": {
         "php": ">=5.3.0",
         "illuminate/support": "4.x",
-        "mpdf/mpdf": "*"
+        "tfox/mpdf-port-bundle": "1.2.*"
     },
     "autoload": {
         "psr-0": {
