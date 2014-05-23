@@ -1,7 +1,10 @@
 <?php namespace Lowerends\Mpdf;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
-use TFox\MpdfPortBundle\Service\MpdfService as mPDF;
+//use TFox\MpdfPortBundle\Service\MpdfService as mPDF;
+
+include base_path('vendor/mpdf/mpdf/mpdf.php');
+
 
 class ServiceProvider extends BaseServiceProvider {
 
@@ -20,22 +23,32 @@ class ServiceProvider extends BaseServiceProvider {
 	 */
 	public function register()
 	{
-        $this->package('lowerends/l4-mpdf');
+		$this->package('lowerends/l4-mpdf');
 
-        if($this->app['config']->get('l4-mpdf::config.pdf.enabled')){
-            $this->app['mpdf.pdf'] = $this->app->share(function($app)
-            {
-                $base = $app['config']->get('l4-mpdf::config.pdf.base');
-                $options = $app['config']->get('l4-mpdf::config.pdf.options');
-                $mpdf = new mPDF;
-                return $mpdf;
-            });
+		if($this->app['config']->get('l4-mpdf::config.pdf.enabled')){
+			$this->app['mpdf.pdf'] = $this->app->share(function($app)
+			{
+				$base = $app['config']->get('l4-mpdf::config.pdf.base');
+				$options = $app['config']->get('l4-mpdf::config.pdf.options');
+				$mpdf=new \mPDF('win-1252','A4','','',20,15,48,25,10,10); 
+				$mpdf->useOnlyCoreFonts = false;    // false is default
+				$mpdf->SetProtection(array('print'));
+				$mpdf->SetTitle("Acme Trading Co. - Invoice");
+				$mpdf->SetAuthor("Acme Trading Co.");
+				$mpdf->SetWatermarkText("Watermark");
+				$mpdf->showWatermarkText = true;
+				$mpdf->watermark_font = 'DejaVuSansCondensed';
+				$mpdf->watermarkTextAlpha = 0.1;
+				$mpdf->SetDisplayMode('fullpage');
+				
+				return $mpdf;
+			});
 
-            $this->app['mpdf.wrapper'] = $this->app->share(function($app)
-            {
-                return new PdfWrapper($app['mpdf.pdf']);
-            });
-        }
+			$this->app['mpdf.wrapper'] = $this->app->share(function($app)
+			{
+				return new PdfWrapper($app['mpdf.pdf']);
+			});
+		}
 	}
 
 	/**

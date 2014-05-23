@@ -15,9 +15,9 @@ class PdfWrapper{
     protected $options;
 
     public function __construct($mpdf){
-     $this->mpdf = $mpdf;
-     $this->options = array();
- }
+       $this->mpdf = $mpdf;
+       $this->options = array();
+   }
 
     /**
      * Load a HTML string
@@ -68,14 +68,14 @@ class PdfWrapper{
 
         if($this->html)
         {
-            $mpdf->WriteHTML($this->html);
+            $this->mpdf->WriteHTML($this->html);
         } 
         elseif($this->file)
         {
-            $mpdf->WriteHTML($this->file);
+            $this->mpdf->WriteHTML($this->file);
         }
 
-        return $mpdf->Output('', 'S');
+        return $this->mpdf->Output('', 'S');
     }
 
     /**
@@ -88,14 +88,14 @@ class PdfWrapper{
 
         if($this->html)
         {
-            $mpdf->WriteHTML($this->html);
+            $this->mpdf->WriteHTML($this->html);
         } 
         elseif($this->file)
         {
-            $mpdf->WriteHTML($this->file);
+            $this->mpdf->WriteHTML($this->file);
         }
 
-        return $mpdf->Output($filename, 'F');
+        return $this->mpdf->Output($filename, 'F');
     }
 
     /**
@@ -108,14 +108,14 @@ class PdfWrapper{
 
         if($this->html)
         {
-            $mpdf->WriteHTML($this->html);
+            $this->mpdf->WriteHTML($this->html);
         } 
         elseif($this->file)
         {
-            $mpdf->WriteHTML($this->file);
+            $this->mpdf->WriteHTML($this->file);
         }
 
-        return $mpdf->Output($filename, 'D');
+        return $this->mpdf->Output($filename, 'D');
     }
 
     /**
@@ -127,14 +127,14 @@ class PdfWrapper{
     public function stream($filename = 'document.pdf' ){
         if($this->html)
         {
-            $mpdf->WriteHTML($this->html);
+            $this->mpdf->WriteHTML($this->html);
         } 
         elseif($this->file)
         {
-            $mpdf->WriteHTML($this->file);
+            $this->mpdf->WriteHTML($this->file);
         }
 
-        return $mpdf->Output($filename, 'I');
+        return $this->mpdf->Output($filename, 'I');
     }
 
     public function __call($name, $arguments){
