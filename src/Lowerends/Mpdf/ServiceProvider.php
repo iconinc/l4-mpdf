@@ -1,7 +1,7 @@
 <?php namespace Lowerends\Mpdf;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
-use Mpdf\Mpdf\Mpdf;
+use Mpdf\Mpdf\Mpdf as Pdf;
 
 class ServiceProvider extends BaseServiceProvider {
 
@@ -25,9 +25,9 @@ class ServiceProvider extends BaseServiceProvider {
         if($this->app['config']->get('l4-mpdf::config.pdf.enabled')){
             $this->app['mpdf.pdf'] = $this->app->share(function($app)
             {
-                $binary = $app['config']->get('l4-mpdf::config.pdf.binary');
+                $base = $app['config']->get('l4-mpdf::config.pdf.base');
                 $options = $app['config']->get('l4-mpdf::config.pdf.options');
-                $mpdf = new Pdf($binary, $options);
+                $mpdf = new Pdf('win-1252','A4','','',20,15,48,25,10,10);
                 return $mpdf;
             });
 
