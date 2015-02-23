@@ -1,4 +1,4 @@
-<?php namespace Lowerends\Mpdf;
+<?php namespace Kendu\Mpdf;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 //use TFox\MpdfPortBundle\Service\MpdfService as mPDF;
@@ -23,7 +23,7 @@ class ServiceProvider extends BaseServiceProvider {
 	 */
 	public function register()
 	{
-		$this->package('lowerends/l4-mpdf');
+		$this->package('kendu/l4-mpdf');
 
 		if($this->app['config']->get('l4-mpdf::config.pdf.enabled')){
 			$this->app['mpdf.pdf'] = $this->app->share(function($app)

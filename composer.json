@@ -1,11 +1,11 @@
 {
-    "name": "lowerends/l4-mpdf",
+    "name": "kendu/l4-mpdf",
     "description": "mPDF wrapper for Laravel 4",
     "keywords": ["laravel","mpdf", "pdf"],
     "authors": [
         {
-            "name": "Lowe Rends",
-            "email": "lowerends@gmail.com"
+            "name": "Kendu",
+            "email": "info@kendu.si"
         }
     ],
     "require": {
@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-0": {
-            "Lowerends\\Mpdf": "src/"
+            "Kendu\\Mpdf": "src/"
         }
     },
     "minimum-stability": "dev"
