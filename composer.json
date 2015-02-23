@@ -1,6 +1,7 @@
 {
     "name": "kendu/l4-mpdf",
     "description": "mPDF wrapper for Laravel 4",
+    "version": "0.1",
     "keywords": ["laravel","mpdf", "pdf"],
     "authors": [
         {
@@ -10,7 +11,6 @@
     ],
     "require": {
         "php": ">=5.3.0",
-        "illuminate/support": "4.x",
         "mpdf/mpdf": "5.7.*"
     },
     "autoload": {
@@ -18,5 +18,5 @@
             "Kendu\\Mpdf": "src/"
         }
     },
-    "minimum-stability": "dev"
+    "license": "Apache 2.0"
 }
