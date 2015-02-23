@@ -1,7 +1,7 @@
 <?php namespace Kendu\Mpdf;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
-//use TFox\MpdfPortBundle\Service\MpdfService as mPDF;
+use Config;
 
 include base_path('vendor/mpdf/mpdf/mpdf.php');
 
@@ -30,15 +30,26 @@ class ServiceProvider extends BaseServiceProvider {
 			{
 				$base = $app['config']->get('l4-mpdf::config.pdf.base');
 				$options = $app['config']->get('l4-mpdf::config.pdf.options');
-				$mpdf=new \mPDF('win-1252','A4','','',10,10,40,35,10,5);
+				$mpdf=new \mPDF(
+                    Config::get('pdf.mode'),
+                    Config::get('pdf.defaultFontSize'),
+                    Config::get('pdf.defaultFont'),
+                    Config::get('pdf.marginLeft'),
+                    Config::get('pdf.marginRight'),
+                    Config::get('pdf.marginTop'),
+                    Config::get('pdf.marginBottom'),
+                    Config::get('pdf.marginHeader'),
+                    Config::get('pdf.Footer'),
+                    Config::get('pdf.orientation')
+                );
 				$mpdf->SetProtection(array('print'));
-				$mpdf->SetTitle("Acme Trading Co. - Invoice");
-				$mpdf->SetAuthor("Acme Trading Co.");
-				$mpdf->SetWatermarkText("Paid");
-				$mpdf->showWatermarkText = false;
-				$mpdf->watermark_font = 'DejaVuSansCondensed';
-				$mpdf->watermarkTextAlpha = 0.1;
-				$mpdf->SetDisplayMode('fullpage');
+				$mpdf->SetTitle(Config::get('pdf.title'));
+				$mpdf->SetAuthor(Config::get('pdf.author'));
+				$mpdf->SetWatermarkText(Config::get('pdf.watermark'));
+				$mpdf->showWatermarkText = Config::get('pdf.showWatermark');
+				$mpdf->watermark_font = Config::get('pdf.watermarkFont');
+				$mpdf->watermarkTextAlpha = Config::get('pdf.watermarkTextAlpha');
+				$mpdf->SetDisplayMode(Config::get('pdf.displayMode'));
 
 				return $mpdf;
 			});
