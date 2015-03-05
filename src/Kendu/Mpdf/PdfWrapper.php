@@ -25,8 +25,9 @@ class PdfWrapper {
      * @param string $string
      * @return static
      */
-    public function loadHTML($string){
-        $this->html = (string) $string;
+    public function loadHTML($string, $mode = 0){
+        $this->mpdf->WriteHTML((string) $string, $mode);
+        $this->html = null;
         $this->file = null;
         return $this;
     }
