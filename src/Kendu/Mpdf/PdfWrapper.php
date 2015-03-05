@@ -7,7 +7,7 @@ namespace Kendu\Mpdf;
  * @package l4-mpdf
  * @author Kendu
  */
-class PdfWrapper{
+class PdfWrapper {
 
     /** @var \Mpdf  */
     protected $mpdf;
@@ -69,7 +69,7 @@ class PdfWrapper{
         if($this->html)
         {
             $this->mpdf->WriteHTML($this->html);
-        } 
+        }
         elseif($this->file)
         {
             $this->mpdf->WriteHTML($this->file);
@@ -89,7 +89,7 @@ class PdfWrapper{
         if($this->html)
         {
             $this->mpdf->WriteHTML($this->html);
-        } 
+        }
         elseif($this->file)
         {
             $this->mpdf->WriteHTML($this->file);
@@ -109,7 +109,7 @@ class PdfWrapper{
         if($this->html)
         {
             $this->mpdf->WriteHTML($this->html);
-        } 
+        }
         elseif($this->file)
         {
             $this->mpdf->WriteHTML($this->file);
@@ -128,7 +128,7 @@ class PdfWrapper{
         if($this->html)
         {
             $this->mpdf->WriteHTML($this->html);
-        } 
+        }
         elseif($this->file)
         {
             $this->mpdf->WriteHTML($this->file);
