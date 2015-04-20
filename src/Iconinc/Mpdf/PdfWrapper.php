@@ -1,5 +1,5 @@
 <?php
-namespace Kendu\Mpdf;
+namespace Iconinc\Mpdf;
 
 /**
  * A Laravel wrapper for mPDF

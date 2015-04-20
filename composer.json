@@ -1,5 +1,5 @@
 {
-    "name": "kendu/l4-mpdf",
+    "name": "iconinc/l4-mpdf",
     "description": "mPDF wrapper for Laravel 4",
     "version": "0.1",
     "keywords": ["laravel","mpdf", "pdf"],
@@ -7,6 +7,10 @@
         {
             "name": "Kendu",
             "email": "info@kendu.si"
+        },
+        {
+            "name": "Al Munnings",
+            "email": "al.munnings@iconinc.com.au"
         }
     ],
     "require": {
@@ -15,7 +19,7 @@
     },
     "autoload": {
         "psr-0": {
-            "Kendu\\Mpdf": "src/"
+            "Iconinc\\Mpdf": "src/"
         }
     },
     "license": "Apache 2.0"

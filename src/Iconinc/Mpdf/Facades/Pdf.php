@@ -1,5 +1,5 @@
 <?php
-namespace Kendu\Mpdf\Facades;
+namespace Iconinc\Mpdf\Facades;
 
 use Illuminate\Support\Facades\Facade as BaseFacade;
 

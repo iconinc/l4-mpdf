@@ -1,5 +1,5 @@
 <?php
-namespace Kendu\Mpdf;
+namespace Iconinc\Mpdf;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 use Config;
@@ -24,7 +24,7 @@ class ServiceProvider extends BaseServiceProvider {
      */
     public function register()
     {
-        $this->package('kendu/l4-mpdf');
+        $this->package('iconinc/l4-mpdf');
         $this->app['mpdf.pdf'] = $this->app->share(function($app)
         {
             $base = $app['config']->get('l4-mpdf::config.pdf.base');
